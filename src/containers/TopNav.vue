@@ -57,7 +57,7 @@ export default {
       }
     },
     isLoggedIn(val) {
-      console.log('Valor Is logged TopNav :::>',val);
+      return val;
     }
   }
 };

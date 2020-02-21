@@ -279,7 +279,6 @@ export default {
     loadEventos() {
       this.toggleBusy();
       Services.getAllEventos().then(response => {
-        console.debug("Resultado lista de eventos ::::>", response.data);
         this.eventos = response.data;
         this.isLoad = true;
         this.toggleBusy();
@@ -327,7 +326,6 @@ export default {
       };
 
       if (!evento.idevento) {
-        console.log("Se va a crear el evento ::::>", evento);
         Services.crearEvento(evento).then(response => {
           if (response.status == 200) {
             this.loadEventos();
@@ -341,7 +339,6 @@ export default {
           this.$notify({group: 'foo',type: 'error',title: 'Resultado',text: 'Ocurrio un error al actualizar evento '+error.message,duration: 5000});
         });
       } else {
-        console.log("Se va a actualizar el evento ::::>", evento);
         Services.actualizarEvento(evento).then(response => {
           if (response.status == 202) {
             this.loadEventos();
@@ -358,7 +355,6 @@ export default {
     },
     info(item) {
       //this.infoModal.title = `Row index: ${index}`
-      console.log("Item a cargar ::::>", item);
       var DateUTC=new Date(item.fechaevento).toLocaleString("en-US", {timeZone: "UTC"})
       this.form = {
         idevento: item.idevento,

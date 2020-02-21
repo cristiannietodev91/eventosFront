@@ -91,7 +91,7 @@ export default {
       };
     },
     handleOk() {
-      console.log("Envio de evento :::>", this.idevento);
+      
       // Prevent modal from closing
       //bvModalEvt.preventDefault();
       // Trigger submit handler
@@ -100,8 +100,6 @@ export default {
     handleSubmit() {
       //this.$v.$touch();
       // Exit when the form isn't valid
-
-      //console.log('Boleto evento',this.$v.formboleto);
       //if (this.$v.formboleto.$pending || this.$v.formboleto.$error) return;
 
       this.formboleto.idevento = this.idevento;
@@ -112,7 +110,6 @@ export default {
           uid: this.user.uid
         };
 
-        console.log("Se va a crear el evento ::::>", boleto);
         this.$bvModal.hide("modalComprarBoleto");
         Services.crearBoleto(boleto).then(response => {
           if (response.status == 200) {
