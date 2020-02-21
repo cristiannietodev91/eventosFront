@@ -72,7 +72,6 @@ export default {
       let password = this.form.password;
       this.login({ usuario, password })
         .then(() => {
-          //console.log("Hollaaaa");
           this.$router.push("/");
         });
     }

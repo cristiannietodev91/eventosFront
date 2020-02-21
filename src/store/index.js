@@ -47,7 +47,6 @@ export default new Vuex.Store({
               photoUrl: user.user.photoURL
             }
 
-            console.log('Resultado usuario autenticado :::: > ', newUser);
             const item = { uid: newUser.uid, ...newUser }
             localStorage.setItem('user', JSON.stringify(item))
             //commit('setUser', { uid: newUser.uid, ...newUser })
@@ -57,7 +56,6 @@ export default new Vuex.Store({
           },
           err => {
             localStorage.removeItem('user')
-            console.log('Error en login firebase ::::>', err)
             commit('auth_error', err.message);          
           }
         )
@@ -83,7 +81,6 @@ export default new Vuex.Store({
                 photoUrl: user.user.photoURL
               }
 
-              console.log('Resultado usuario registrado :::: > ', newUser);
               const item = { uid: newUser.uid, ...newUser }
               localStorage.setItem('user', JSON.stringify(item))
               //commit('setUser', { uid: newUser.uid, ...newUser })
@@ -92,26 +89,9 @@ export default new Vuex.Store({
             });
         })
         .catch(err => {
-          //console.log('Error', err)
           commit('auth_error', err.message);
           localStorage.removeItem('user')
         });
-
-
-      /*ServicesCore.registrarUsuario(payload).then(user => {
-        console.debug('Resultado usuario firebase :::> ', user.data);
-        const item = { uid: user.data.uid, ...user.data }
-        //const item = { uid: user.user.uid, ...currentUser }
-        localStorage.setItem('user', JSON.stringify(item))
-        commit('setUser', { uid: user.uid, ...user.data })
-      },
-        err => {
-          console.error('Error firebase :::> ', err);
-          commit('setError', err.message)
-          setTimeout(() => {
-            commit('clearError')
-          }, 3000)
-        })*/
     },
     logout({ commit }) {
       firebase
