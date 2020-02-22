@@ -1,9 +1,13 @@
 <template>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">Register</div>
+  <b-container class="mt-5">
+    <b-row class="justify-content-center">
+      <b-col class="md-8">
+        <b-card header-tag="header"  
+          header-bg-variant="dark"
+          header-text-variant="white">
+          <template v-slot:header>
+            <h6 class="mb-0">Registrarse</h6>
+          </template>
           <div class="card-body">
             <div v-if="error" class="alert alert-danger">{{error}}</div>
             <form action="#" @submit.prevent="submit">
@@ -58,15 +62,15 @@
 
               <div class="form-group row mb-0">
                 <div class="col-md-8 offset-md-4">
-                  <button type="submit" class="btn btn-primary">Register</button>
+                  <button type="submit" class="btn btn-primary">Registrarse</button>
                 </div>
               </div>
             </form>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        </b-card>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 
