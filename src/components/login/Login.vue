@@ -1,9 +1,13 @@
 <template>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">Login</div>
+  <b-container class="mt-5">
+    <b-row class="justify-content-center">    
+      <b-col class="md-8">
+        <b-card header-tag="header"  
+          header-bg-variant="dark"
+          header-text-variant="white">
+          <template v-slot:header>
+            <h6 class="mb-0">Login</h6>
+          </template>
           <div class="card-body">
             <form action="#" @submit.prevent="submit">
               <div class="form-group row">
@@ -45,10 +49,10 @@
               </div>
             </form>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        </b-card>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
