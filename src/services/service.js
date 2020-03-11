@@ -18,6 +18,10 @@ class ServiceCrm {
     return http.post("/boleto/create", boleto);
   }
 
+  validatePoker(poker) {
+    return http.post("/poker/validateEscalera", poker);
+  }
+
 }
 
 export default new ServiceCrm();

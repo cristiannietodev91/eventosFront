@@ -1,21 +1,19 @@
 <template>
-  <b-navbar  toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand to="/" >Eventos Test</b-navbar-brand>
+  <b-navbar toggleable="lg" type="dark" variant="info" class="mynavbar">
+    <b-navbar-brand>Proyecto Entrevista</b-navbar-brand>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
     <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav class="ml-auto">
-        <template v-if="isLoggedIn">
-          <b-nav-item @click.prevent="signOut">Sign out</b-nav-item>
-        </template>
-        <template v-else>
-          <li class="nav-item">
-            <router-link to="login" class="nav-link">Login</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="register" class="nav-link">Register</router-link>
-          </li>
-        </template>
+      <b-navbar-nav v-if="isLoggedIn">
+        <b-nav-item to="/">Poker</b-nav-item>
+        <b-nav-item to="/home">Eventos</b-nav-item>        
       </b-navbar-nav>
+      <b-navbar-nav class="ml-auto">        
+      </b-navbar-nav>
+      <b-nav-item-dropdown right text="Usuario" class="mynav">        
+        <b-dropdown-item @click.prevent="signOut" v-if="isLoggedIn" >Desloguear</b-dropdown-item>
+        <b-dropdown-item to="login" v-if="!isLoggedIn">Login</b-dropdown-item>
+        <b-dropdown-item to="register" v-if="!isLoggedIn">Register</b-dropdown-item>
+      </b-nav-item-dropdown>
     </b-collapse>
   </b-navbar>
 </template>
@@ -45,3 +43,38 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+
+.router-link-exact-active{
+  font-weight: bold;
+  text-decoration: overline;
+  background-color: dodgerblue;
+}
+
+.mynav{
+  font-weight: bold;
+  color: white;
+}
+
+.mynav a{
+  color: rgb(236, 226, 226) !important;
+  font-weight: bold;
+}
+
+.dropdown-menu-right{
+  background-color: dodgerblue;
+}
+
+.dropdown-menu-right .dropdown-item:hover{
+  background-color: #342ac0;
+  text-decoration: double;
+}
+
+
+
+.mynav a:hover{
+  color: grey;
+  text-decoration: none;
+}
+
+</style>

@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Login from "../components/login/Login.vue";
 import Register from "../components/login/Register.vue";
 import Home from '../views/Home.vue'
+import Poker from '../views/Poker.vue'
 import AuthRequired from "../utils/AuthRequired";
 
 Vue.use(VueRouter)
@@ -11,6 +12,12 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    name: 'Poker',
+    component: Poker,
+    beforeEnter: AuthRequired
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: Home,
     beforeEnter: AuthRequired
@@ -26,7 +33,7 @@ const routes = [
     component: Register
   },
   // otherwise redirect to home
-  { path: '*', redirect: '/' }
+  { path: '*', redirect: '/poker' }
 
 
 ]

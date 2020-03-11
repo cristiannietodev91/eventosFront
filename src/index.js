@@ -1,8 +1,8 @@
 
 let render = () => {
-  import("./assets/css/sass/themes/piaf.light.blue.scss").then(() =>
+  
     require("./main")
-  );
+  
 };
 
 render();
