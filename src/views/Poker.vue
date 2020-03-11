@@ -370,7 +370,6 @@ export default {
         this.cartasEscalera = []
         Services.validatePoker(this.list2)
           .then(response => {
-            console.log("Respuesta poker ::>", response.data);
             this.list2 = response.data;
 
             let count = this.list2.filter(element => {
